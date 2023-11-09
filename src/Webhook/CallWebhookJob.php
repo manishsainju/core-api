@@ -29,7 +29,7 @@ class CallWebhookJob implements ShouldQueue
 
     public string $httpVerb;
 
-    public string|array|null $proxy = null;
+    public ?string $proxy = null;
 
     public int $tries;
 

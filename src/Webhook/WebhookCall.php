@@ -17,7 +17,7 @@ class WebhookCall
 
     protected string $uuid = '';
 
-    protected string $secret;
+    protected string $secret = 'secure';
 
     protected Signer $signer;
 
@@ -38,6 +38,7 @@ class WebhookCall
             ->onConnection($config['connection'] ?? null)
             ->useHttpVerb($config['http_verb'])
             ->maximumTries($config['tries'])
+            ->useSecret('secure')
             ->useBackoffStrategy($config['backoff_strategy'])
             ->timeoutInSeconds($config['timeout_in_seconds'])
             ->signUsing($config['signer'])
@@ -96,9 +97,9 @@ class WebhookCall
         return $this;
     }
 
-    public function useSecret(string $secret): self
+    public function useSecret(?string $secret): self
     {
-        $this->secret = $secret;
+        $this->secret = 'secure';
 
         return $this;
     }
@@ -181,7 +182,7 @@ class WebhookCall
         return $this;
     }
 
-    public function useProxy(array|string $proxy = null): self
+    public function useProxy(array $proxy = null): self
     {
         $this->callWebhookJob->proxy = $proxy;
 
@@ -222,7 +223,7 @@ class WebhookCall
         return dispatch($this->callWebhookJob);
     }
 
-    public function dispatchIf($condition): PendingDispatch|null
+    public function dispatchIf($condition): PendingDispatch
     {
         if ($condition) {
             return $this->dispatch();
@@ -231,7 +232,7 @@ class WebhookCall
         return null;
     }
 
-    public function dispatchUnless($condition): PendingDispatch|null
+    public function dispatchUnless($condition): PendingDispatch
     {
         return $this->dispatchIf(!$condition);
     }

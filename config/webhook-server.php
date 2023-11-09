@@ -58,6 +58,10 @@ return [
      */
     'webhook_job' => \Fleetbase\Webhook\CallWebhookJob::class,
 
+    'proxy' => null,
+    
+    'throw_exception_on_failure' => false,
+
     /*
      * By default we will verify that the ssl certificate of the destination
      * of the webhook is valid.
