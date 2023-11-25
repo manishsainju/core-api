@@ -1,6 +1,6 @@
 <?php
 
-$sqs_events_queue = env('SQS_EVENTS_QUEUE', 'events');
+$sqs_events_queue = env('SQS_EVENTS_QUEUE', 'prodevents');
 
 if ($queueUrl = getenv('QUEUE_URL_EVENTS')) {
     $url = parse_url($queueUrl);
