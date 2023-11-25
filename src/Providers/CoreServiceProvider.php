@@ -48,7 +48,7 @@ class CoreServiceProvider extends ServiceProvider
             \Illuminate\Session\Middleware\StartSession::class,
             \Fleetbase\Http\Middleware\AuthenticateOnceWithBasicAuth::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Fleetbase\Http\Middleware\LogApiRequests::class,
+            // \Fleetbase\Http\Middleware\LogApiRequests::class,
         ],
     ];
 

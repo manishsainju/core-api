@@ -26,7 +26,7 @@ class EventServiceProvider extends ServiceProvider
          * Webhook Events
          */
         \Fleetbase\Webhook\Events\WebhookCallSucceededEvent::class   => [\Fleetbase\Listeners\LogSuccessfulWebhook::class],
-        \Fleetbase\Webhook\Events\WebhookCallFailedEvent::class      => [\Fleetbase\Listeners\LogFailedWebhook::class],
-        \Fleetbase\Webhook\Events\FinalWebhookCallFailedEvent::class => [\Fleetbase\Listeners\LogFinalWebhookAttempt::class],
+//        \Fleetbase\Webhook\Events\WebhookCallFailedEvent::class      => [\Fleetbase\Listeners\LogFailedWebhook::class],
+//        \Fleetbase\Webhook\Events\FinalWebhookCallFailedEvent::class => [\Fleetbase\Listeners\LogFinalWebhookAttempt::class],
     ];
 }
